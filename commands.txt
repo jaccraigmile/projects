@@ -1,5 +1,5 @@
 docker login ghcr.io
 jaccraigmile
-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
+
 
 docker pull ghcr.io/cybercentrecanada/assemblyline-service-base:latest
