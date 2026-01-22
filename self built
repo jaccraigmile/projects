@@ -9,14 +9,12 @@ services:
     container_name: clamav
     restart: unless-stopped
     ports:
-      - "3310:3310"  # ClamAV daemon port
+      - "3310:3310"
     volumes:
       - clamav-db:/var/lib/clamav
-    environment:
-      - FRESHCLAM_DELAY=60  # Update virus database every 60 minutes
 
   webui:
-    image: ghcr.io/mk0x/docker-clamav-webui:latest
+    image: rguziy/clamav-web-client:latest
     container_name: clamav-webui
     depends_on:
       - clamav
@@ -25,7 +23,6 @@ services:
     environment:
       - CLAMAV_HOST=clamav
       - CLAMAV_PORT=3310
-      - MAX_UPLOAD_SIZE=100M
 
 volumes:
   clamav-db:
