@@ -1,0 +1,1 @@
+docker pull ghcr.io/cybercentrecanada/assemblyline-service-base:latest
