@@ -1,0 +1,31 @@
+mkdir clamav-webui
+cd clamav-webui
+nano docker-compose.yml
+version: '3.8'
+
+services:
+  clamav:
+    image: clamav/clamav:latest
+    container_name: clamav
+    restart: unless-stopped
+    ports:
+      - "3310:3310"  # ClamAV daemon port
+    volumes:
+      - clamav-db:/var/lib/clamav
+    environment:
+      - FRESHCLAM_DELAY=60  # Update virus database every 60 minutes
+
+  webui:
+    image: ghcr.io/mk0x/docker-clamav-webui:latest
+    container_name: clamav-webui
+    depends_on:
+      - clamav
+    ports:
+      - "8080:8080"
+    environment:
+      - CLAMAV_HOST=clamav
+      - CLAMAV_PORT=3310
+      - MAX_UPLOAD_SIZE=100M
+
+volumes:
+  clamav-db:
