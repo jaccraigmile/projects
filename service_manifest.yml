@@ -1,0 +1,29 @@
+name: ClamAV
+version: 1.0.0
+description: Scan files using ClamAV antivirus engine
+author: jac
+enabled: true
+
+service:
+  class: ClamAV
+  timeout: 60
+  stage: CORE
+  cpu_cores: 1
+  ram_mb: 512
+
+docker_config:
+  image: clamav-service:latest
+  command: ["python", "-m", "assemblyline_service.run"]
+  allow_internet_access: false
+
+submission_params: []
+
+config:
+  CLAMAV_HOST:
+    type: string
+    default: clamav
+    description: Hostname of ClamAV daemon
+  CLAMAV_PORT:
+    type: int
+    default: 3310
+    description: ClamAV clamd TCP port
