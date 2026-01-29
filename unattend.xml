@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <unattend xmlns="urn:schemas-microsoft-com:unattend">
 
+  <!-- OOBE Configuration -->
   <settings pass="oobeSystem">
     <component name="Microsoft-Windows-Shell-Setup"
                processorArchitecture="amd64"
@@ -9,18 +10,38 @@
                versionScope="nonSxS">
 
       <OOBE>
+        <!-- Hide End User License Agreement page -->
         <HideEULAPage>true</HideEULAPage>
+
+        <!-- Suppress Microsoft account sign-in screens -->
         <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+
+        <!-- Skip Wi-Fi setup during OOBE -->
         <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+
+        <!-- Set network location to Work (corporate) -->
         <NetworkLocation>Work</NetworkLocation>
+
+        <!-- Disable consumer protection prompts -->
         <ProtectYourPC>3</ProtectYourPC>
       </OOBE>
+
+    </component>
+  </settings>
+
+  <!-- Local account creation (no password) -->
+  <settings pass="specialize">
+    <component name="Microsoft-Windows-Shell-Setup"
+               processorArchitecture="amd64"
+               publicKeyToken="31bf3856ad364e35"
+               language="neutral"
+               versionScope="nonSxS">
 
       <UserAccounts>
         <LocalAccounts>
           <LocalAccount wcm:action="add">
-            <Name>LocalAdmin</Name>
-            <Group>Student</Group>
+            <Name>Student</Name>
+            <Group>Administrators</Group>
             <Password>
               <Value>Windows1</Value>
               <PlainText>true</PlainText>
@@ -33,3 +54,4 @@
   </settings>
 
 </unattend>
+
