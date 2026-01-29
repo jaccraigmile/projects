@@ -52,6 +52,7 @@
               <Value>Windows1</Value>
               <PlainText>true</PlainText>
             </Password>
+            <Enabled>true</Enabled>
           </LocalAccount>
         </LocalAccounts>
       </UserAccounts>
