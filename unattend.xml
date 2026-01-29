@@ -10,16 +10,20 @@
                versionScope="nonSxS">
 
       <OOBE>
-        <!-- Hide End User License Agreement page -->
+        <!-- Skip EULA -->
         <HideEULAPage>true</HideEULAPage>
 
-        <!-- Suppress Microsoft account sign-in screens -->
+        <!-- Skip Microsoft account prompts -->
         <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
 
-        <!-- Skip Wi-Fi setup during OOBE -->
+        <!-- Skip Wi-Fi setup -->
         <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
 
-        <!-- Set network location to Work (corporate) -->
+        <!-- Skip first-time OOBE for user and device -->
+        <SkipUserOOBE>true</SkipUserOOBE>
+        <SkipMachineOOBE>true</SkipMachineOOBE>
+
+        <!-- Set network location to Work -->
         <NetworkLocation>Work</NetworkLocation>
 
         <!-- Disable consumer protection prompts -->
@@ -29,7 +33,7 @@
     </component>
   </settings>
 
-  <!-- Local account creation (no password) -->
+  <!-- Local account creation and autologon -->
   <settings pass="specialize">
     <component name="Microsoft-Windows-Shell-Setup"
                processorArchitecture="amd64"
@@ -52,8 +56,17 @@
         </LocalAccounts>
       </UserAccounts>
 
+      <AutoLogon>
+        <Username>Student</Username>
+        <Password>
+          <Value>Windows1</Value>
+          <PlainText>true</PlainText>
+        </Password>
+        <Enabled>true</Enabled>
+        <LogonCount>1</LogonCount>
+      </AutoLogon>
+
     </component>
   </settings>
 
 </unattend>
-
