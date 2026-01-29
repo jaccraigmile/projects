@@ -65,7 +65,13 @@
         <Enabled>true</Enabled>
         <LogonCount>1</LogonCount>
       </AutoLogon>
-
+    </component>
+    <component name="Microsoft-Windows-WindowsUpdateClient"
+               processorArchitecture="amd64"
+               publicKeyToken="31bf3856ad364e35"
+               language="neutral"
+               versionScope="nonSxS">
+      <DisableWindowsUpdateAccess>true</DisableWindowsUpdateAccess>
     </component>
   </settings>
 
