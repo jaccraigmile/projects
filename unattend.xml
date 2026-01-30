@@ -11,8 +11,8 @@
                 <!-- Skip Wi-Fi setup -->
                 <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
                 <!-- Skip first-time OOBE for user and device -->
-                <SkipUserOOBE>true</SkipUserOOBE>
-                <SkipMachineOOBE>true</SkipMachineOOBE>
+                <SkipUserOOBE>false</SkipUserOOBE>
+                <SkipMachineOOBE>false</SkipMachineOOBE>
                 <!-- Set network location to Work -->
                 <NetworkLocation>Work</NetworkLocation>
                 <!-- Disable consumer protection prompts -->
