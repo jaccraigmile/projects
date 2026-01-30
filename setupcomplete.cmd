@@ -1,4 +1,12 @@
 @echo off
+REM no password questions
+
+sc stop wuauserv
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" ^
+ /v NoLocalPasswordResetQuestions ^
+ /t REG_DWORD ^
+ /d 1 ^
+ /f
 title SetupComplete - Windows Update Control
 
 REM ===============================
@@ -23,6 +31,8 @@ sc stop UsoSvc
 
 REM Disable Windows Update service
 sc config wuauserv start= disabled
-sc stop wuauserv
+
 
 exit /b 0
+
+
